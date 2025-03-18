@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "username": "john123",
+        "password": "password",
+        "name": "John Doe",
+        "email": "jdoe@dating.com",
+        "gender": "Male",
+        "address": "123 Main St",
+        "city": "London",
+        "province": "ON"
+    },
+    {
+        "id": 2,
+        "username": "jane123",
+        "password": "password",
+        "name": "Jane Doe",
+        "email": "janedoe@dating.com",
+        "gender": "Female",
+        "address": "123 Second St",
+        "city": "London",
+        "province": "ON"
+    },
+    {
+        "id": 3,
+        "username": "jim123",
+        "password": "password",
+        "name": "Jim Smith",
+        "email": "jsmith@dating.com",
+        "gender": "Male",
+        "address": "123 Third St",
+        "city": "London",
+        "province": "ON"
+    },
+    {
+        "id": 4,
+        "username": "grace123",
+        "password": "password",
+        "name": "Grace Taylor",
+        "email": "gtaylor@dating.com",
+        "gender": "Female",
+        "address": "123 King St",
+        "city": "London",
+        "province": "ON"
+    },
+    {
+        "id": 5,
+        "username": "sarah123",
+        "password": "password",
+        "name": "Sarah Johnson",
+        "email": "sjohnson@dating.com",
+        "gender": "Female",
+        "address": "123 Queen St",
+        "city": "Toronto",
+        "province": "ON"
+    },
+    {
+        "id": 6,
+        "username": "taylor123",
+        "password": "password",
+        "name": "Taylor Brown",
+        "email": "tbrown@dating.com",
+        "gender": "Female",
+        "address": "123 Dundas St",
+        "city": "Toronto",
+        "province": "ON"
+    },
+    {
+        "id": 7,
+        "username": "sophie123",
+        "password": "password",
+        "name": "Sophie Clark",
+        "email": "sclark@dating.com",
+        "gender": "Female",
+        "address": "123 Number St",
+        "city": "London",
+        "province": "ON"
+    }
+]
