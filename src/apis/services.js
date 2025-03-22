@@ -19,24 +19,6 @@ class APIService {
     return { success: false, message: 'Failed to get users', data: '' };
   }
 
-  static async queryUsersByCity(city) {
-    const users = await APIDAO.getUsers();
-    if (users) {
-      const foundUsers = users.filter((user) => user.city === city);
-      return { success: true, message: 'Found users', data: foundUsers };
-    }
-    return { success: false, message: 'Failed to get users', data: '' };
-  }
-
-  static async queryUsersByGender(gender) {
-    const users = await APIDAO.getUsers();
-    if (users) {
-      const foundUsers = users.filter((user) => user.gender === gender);
-      return { success: true, message: 'Found users', data: foundUsers };
-    }
-    return { success: false, message: 'Failed to get users', data: '' };
-  }
-
   static async addUser(user) {
     const users = await APIDAO.getUsers();
     if (users) {
@@ -70,6 +52,74 @@ class APIService {
       }
     }
   }
+
+  static async queryUsersByCity(city) {
+    const users = await APIDAO.getUsers();
+    if (users) {
+      const foundUsers = users.filter((user) => user.city.toLowerCase() === city.toLowerCase());
+      return { success: true, message: 'Found users', data: foundUsers };
+    }
+    return { success: false, message: 'Failed to get users', data: '' };
+  }
+
+  static async queryUsersByGender(gender) {
+    const users = await APIDAO.getUsers();
+    if (users) {
+      const foundUsers = users.filter((user) => user.gender.toLowerCase() === gender.toLowerCase());
+      return { success: true, message: 'Found users', data: foundUsers };
+    }
+    return { success: false, message: 'Failed to get users', data: '' };
+  }
+
+  static async getAllPosts() {
+    const posts = await APIDAO.getPosts();
+    if (posts) {
+      return { success: true, message: 'Found posts', data: posts };
+    }
+    return { success: false, message: 'Failed to get posts', data: '' };
+  }
+
+  static async newPost(post) {
+    const posts = await APIDAO.getPosts();
+    if (posts) {
+      const newPost = {
+        id: posts.length + 1,
+        ...post,
+      };
+      posts.push(newPost);
+      const result = await APIDAO.savePosts(posts);
+      if (result) {
+        return { success: true, message: 'Post added!', data: '' };
+      } else {
+        return { success: false, message: 'Failed to add post', data: '' };
+      }
+    }
+  }
+
+  static async getPersonalMessage(user_id) {
+    const messages = await APIDAO.getMessages();
+    if (messages) {
+      const foundMessages = messages.filter((message) => message.send_to === user_id);
+      return { success: true, message: 'Found messages', data: foundMessages };
+    }
+    return { success: false, message: 'Failed to get messages', data: '' };
+  }
   
+  static async newMessage(message) {
+    const messages = await APIDAO.getMessages();
+    if (messages) {
+      const newMessage = {
+        id: messages.length + 1,
+        ...message,
+      };
+      messages.push(newMessage);
+      const result = await APIDAO.saveMessages(messages);
+      if (result) {
+        return { success: true, message: 'Message sent!', data: '' };
+      } else {
+        return { success: false, message: 'Failed to send message', data: '' };
+      }
+    }
+  }
 }
 module.exports = APIService;
