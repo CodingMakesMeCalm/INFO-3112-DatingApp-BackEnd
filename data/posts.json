@@ -1,16 +1,16 @@
 [
-    {
-        "id": 1,
-        "author_id": 1,
-        "author_name": "John Doe",
-        "title": "I am a good guy",
-        "content": "I am a good guy, so I am a good guy"
-    },
-    {
-        "id": 2,
-        "author_id": 3,
-        "author_name": "Jim Smith",
-        "title": "I am a good guy too",
-        "content": "Jim is a good guy, so I am a good guy too"
-    }
+  {
+    "id": 1,
+    "author_id": 1,
+    "author_name": "John Doe",
+    "title": "I am a good guy",
+    "content": "I am a good guy, so I am a good guy"
+  },
+  {
+    "id": 2,
+    "author_id": 3,
+    "author_name": "Jim Smith",
+    "title": "I am a good guy too",
+    "content": "Jim is a good guy, so I am a good guy too"
+  }
 ]

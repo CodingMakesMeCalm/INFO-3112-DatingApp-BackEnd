@@ -9,11 +9,14 @@ router.get('/', function (req, res, next) {
 router.get('/all-users', APIController.getAllUsers);
 router.post('/login', APIController.login);
 router.post('/register', APIController.register);
-router.get('/matching-users-city', APIController.matchingByCity);
-router.get('/matching-users-gender', APIController.matchingByGender);
+router.put('/update-user', APIController.update);
+router.get('/matching-users-city/:city', APIController.matchingByCity);
+router.get('/matching-users-gender/:gender', APIController.matchingByGender);
 router.get('/all-posts', APIController.getAllPosts);
 router.post('/new-post', APIController.newPost);
-router.get('/personal-message', APIController.getPersonalMessage);
+router.get('/personal-message/:userId', APIController.getPersonalMessage);
+router.put('/set-message-read', APIController.setPersonalMessageRead);
 router.post('/new-message', APIController.newMessage);
+router.get('/get-lat-lng', APIController.getLondonLatLng);
 
 module.exports = router;

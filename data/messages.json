@@ -1,58 +1,98 @@
 [
-    {
-        "id": 1,
-        "send_from": 1,
-        "send_from_name": "John Doe",
-        "send_to": 2,
-        "send_to_name": "Jane Doe",
-        "message": "Hello, World!"
-    },
-    {
-        "id": 2,
-        "send_from": 1,
-        "send_from_name": "John Doe",
-        "send_to": 3,
-        "send_to_name": "Jim Smith",
-        "message": "Hello, Universe!"
-    },
-    {
-        "id": 3,
-        "send_from": 1,
-        "send_from_name": "John Doe",
-        "send_to": 4,
-        "send_to_name": "Grace Taylor",
-        "message": "Hello, Galaxy!"
-    },
-    {
-        "id": 4,
-        "send_from": 1,
-        "send_from_name": "John Doe",
-        "send_to": 4,
-        "send_to_name": "Grace Taylor",
-        "message": "Hello, Milky Way!"
-    },
-    {
-        "id": 5,
-        "send_from": 2,
-        "send_from_name": "Jane Doe",
-        "send_to": 1,
-        "send_to_name": "John Doe",
-        "message": "Hello, Solar System!"
-    },
-    {
-        "id": 6,
-        "send_from": 3,
-        "send_from_name": "Jim Smith",
-        "send_to": 1,
-        "send_to_name": "John Doe",
-        "message": "Hello, Earth!"
-    },
-    {
-        "id": 7,
-        "send_from": 4,
-        "send_from_name": "Grace Taylor",
-        "send_to": 1,
-        "send_to_name": "John Doe",
-        "message": "Hello, North America!"
-    }
+  {
+    "id": 1,
+    "send_from": 1,
+    "send_from_name": "John Doe",
+    "send_to": 2,
+    "send_to_name": "Jane Doe",
+    "message": "Hello, World!",
+    "read": false
+  },
+  {
+    "id": 2,
+    "send_from": 1,
+    "send_from_name": "John Doe",
+    "send_to": 3,
+    "send_to_name": "Jim Smith",
+    "message": "Hello, Universe!",
+    "read": false
+  },
+  {
+    "id": 3,
+    "send_from": 1,
+    "send_from_name": "John Doe",
+    "send_to": 4,
+    "send_to_name": "Grace Taylor",
+    "message": "Hello, Galaxy!",
+    "read": false
+  },
+  {
+    "id": 4,
+    "send_from": 1,
+    "send_from_name": "John Doe",
+    "send_to": 4,
+    "send_to_name": "Grace Taylor",
+    "message": "Hello, Milky Way!",
+    "read": false
+  },
+  {
+    "id": 5,
+    "send_from": 2,
+    "send_from_name": "Jane Doe",
+    "send_to": 1,
+    "send_to_name": "John Doe",
+    "message": "Hello, Solar System!",
+    "read": true
+  },
+  {
+    "id": 6,
+    "send_from": 3,
+    "send_from_name": "Jim Smith",
+    "send_to": 1,
+    "send_to_name": "John Doe",
+    "message": "Hello, Earth!",
+    "read": true
+  },
+  {
+    "id": 7,
+    "send_from": 4,
+    "send_from_name": "Grace Taylor",
+    "send_to": 1,
+    "send_to_name": "John Doe",
+    "message": "Hello, North America!",
+    "read": true
+  },
+  {
+    "id": 8,
+    "send_from": 1,
+    "send_from_name": "John Doe",
+    "send_to": 4,
+    "send_to_name": "Grace Taylor",
+    "message": "123",
+    "read": true
+  },
+  {
+    "id": 9,
+    "send_from": 1,
+    "send_from_name": "John Doe",
+    "send_to": 4,
+    "send_to_name": "Grace Taylor",
+    "message": "123"
+  },
+  {
+    "id": 10,
+    "send_from": 1,
+    "send_from_name": "John Doe",
+    "send_to": 3,
+    "send_to_name": "Jim Smith",
+    "message": "test searching message"
+  },
+  {
+    "id": 11,
+    "send_from": 1,
+    "send_from_name": "John Doe",
+    "send_to": 3,
+    "send_to_name": "Jim Smith",
+    "message": "test searching message"
+  }
 ]

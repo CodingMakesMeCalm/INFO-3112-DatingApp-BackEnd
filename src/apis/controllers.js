@@ -102,7 +102,7 @@ class APIController {
 
   static async matchingByCity(req, res, next) {
     try {
-      const { city } = req.body;
+      const { city } = req.params;
       if (!city) {
         res.status(400).json({
           success: false,
@@ -118,7 +118,7 @@ class APIController {
 
   static async matchingByGender(req, res, next) {
     try {
-      const { gender } = req.body;
+      const { gender } = req.params;
       if (!gender) {
         res.status(400).json({
           success: false,
@@ -169,7 +169,7 @@ class APIController {
 
   static async getPersonalMessage(req, res, next) {
     try {
-      const { userId } = req.body;
+      const { userId } = req.params;
       if (!userId) {
         res.status(400).json({
           success: false,
@@ -178,6 +178,22 @@ class APIController {
         return;
       }
       res.json(await APIService.getPersonalMessage(userId));
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async setPersonalMessageRead(req, res, next) {
+    try {
+      const { messageId } = req.body;
+      if (!messageId) {
+        res.status(400).json({
+          success: false,
+          message: 'Query condition not found',
+        });
+        return;
+      }
+      res.json(await APIService.setPersonalMessageRead(messageId));
     } catch (e) {
       next(e);
     }
@@ -207,6 +223,14 @@ class APIController {
         send_to_name,
         message
       }));
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async getLondonLatLng(req, res, next) {
+    try {
+      res.json(await APIService.getLatLng("London, ON"));
     } catch (e) {
       next(e);
     }

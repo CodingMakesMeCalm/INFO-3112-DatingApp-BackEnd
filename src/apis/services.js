@@ -1,4 +1,5 @@
 const APIDAO = require('./dao');
+const getLatLngFromAddress = require('../components/getLatLngFromAddress');
 
 class APIService {
 
@@ -22,9 +23,13 @@ class APIService {
   static async addUser(user) {
     const users = await APIDAO.getUsers();
     if (users) {
+      const userAddress = user.address+', ' + user.city + ', ' + user.province;
+      const { lat, lng } = await getLatLngFromAddress(userAddress);
       const newUser = {
         id: users.length + 1,
         ...user,
+        lat: lat,
+        lng: lng,
       };
       users.push(newUser);
       const result = await APIDAO.saveUsers(users);
@@ -43,8 +48,16 @@ class APIService {
       if (userIdx === -1) {
         return { success: false, message: 'User not found', data: '' };
       }
-      users[userIdx] = updatedUser;
+
+      const userAddress = updatedUser.address+', ' + updatedUser.city + ', ' + updatedUser.province;
+      const { lat, lng } = await getLatLngFromAddress(userAddress);
+      users[userIdx] = {
+        ...updatedUser,
+        lat: lat,
+        lng: lng,
+      };
       const result = await APIDAO.saveUsers(users);
+
       if(result) {
         return { success: true, message: 'User updated successfully', data: updatedUser };
       } else {
@@ -89,7 +102,7 @@ class APIService {
       posts.push(newPost);
       const result = await APIDAO.savePosts(posts);
       if (result) {
-        return { success: true, message: 'Post added!', data: '' };
+        return { success: true, message: 'Post added!', data: posts };
       } else {
         return { success: false, message: 'Failed to add post', data: '' };
       }
@@ -99,10 +112,27 @@ class APIService {
   static async getPersonalMessage(user_id) {
     const messages = await APIDAO.getMessages();
     if (messages) {
-      const foundMessages = messages.filter((message) => message.send_to === user_id);
+      const foundMessages = messages.filter((message) => message.send_to == user_id);
       return { success: true, message: 'Found messages', data: foundMessages };
     }
     return { success: false, message: 'Failed to get messages', data: '' };
+  }
+
+  static async setPersonalMessageRead(message_id){
+    const messages = await APIDAO.getMessages();
+    if (messages) {
+      const messageIdx = messages.findIndex((message) => message.id === message_id);
+      if (messageIdx === -1) {
+        return { success: false, message: 'Message not found', data: '' };
+      }
+      messages[messageIdx].read = true;
+      const result = await APIDAO.saveMessages(messages);
+      if(result) {
+        return { success: true, message: 'Message read status updated', data: messages };
+      } else {
+        return { success: false, message: 'Failed to update message read status', data: '' };
+      }
+    }
   }
   
   static async newMessage(message) {
@@ -120,6 +150,14 @@ class APIService {
         return { success: false, message: 'Failed to send message', data: '' };
       }
     }
+  }
+
+  static async getLatLng(address) {
+    const { lat, lng } = await getLatLngFromAddress(address);
+    if (lat && lng) {
+      return { success: true, message: 'Found lat/lng', data: { lat, lng } };
+    }
+    return { success: false, message: 'Failed to get lat/lng', data: '' };
   }
 }
 module.exports = APIService;
