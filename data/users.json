@@ -9,7 +9,7 @@
     "address": "2518 Main St",
     "city": "London",
     "province": "ON",
-    "lat": 42.909914468611234, 
+    "lat": 42.909914468611234,
     "lng": -81.29862591069661
   },
   {
@@ -22,7 +22,7 @@
     "address": "489 Second St",
     "city": "London",
     "province": "ON",
-    "lat": 43.00786628675313,  
+    "lat": 43.00786628675313,
     "lng": -81.19351376352779
   },
   {
@@ -48,7 +48,7 @@
     "address": "721 King St",
     "city": "London",
     "province": "ON",
-    "lat": 42.9885753215586, 
+    "lat": 42.9885753215586,
     "lng": -81.22693643084109
   },
   {
@@ -61,7 +61,7 @@
     "address": "952 Queen St",
     "city": "Toronto",
     "province": "ON",
-    "lat": 43.66175839203226, 
+    "lat": 43.66175839203226,
     "lng": -79.34024583112605
   },
   {
@@ -74,7 +74,7 @@
     "address": "3020 Dundas St",
     "city": "Toronto",
     "province": "ON",
-    "lat": 43.66584475708623, 
+    "lat": 43.66584475708623,
     "lng": -79.47006844538355
   },
   {
@@ -87,7 +87,18 @@
     "address": "221 Burlington St",
     "city": "London",
     "province": "ON",
-    "lat": 42.96513716370204, 
+    "lat": 42.96513716370204,
     "lng": -81.20736804094777
+  },
+  {
+    "id": 8,
+    "username": "test",
+    "password": "password",
+    "name": "test john",
+    "email": "test@gmail.com",
+    "gender": "Male",
+    "address": "1001 Fanshawe College Blvd",
+    "city": "London",
+    "province": "ON"
   }
 ]

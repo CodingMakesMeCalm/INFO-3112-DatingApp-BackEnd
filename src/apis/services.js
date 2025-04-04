@@ -118,7 +118,7 @@ class APIService {
     return { success: false, message: 'Failed to get messages', data: '' };
   }
 
-  static async setPersonalMessageRead(message_id){
+  static async setPersonalMessageRead(userId, message_id){
     const messages = await APIDAO.getMessages();
     if (messages) {
       const messageIdx = messages.findIndex((message) => message.id === message_id);
@@ -128,7 +128,8 @@ class APIService {
       messages[messageIdx].read = true;
       const result = await APIDAO.saveMessages(messages);
       if(result) {
-        return { success: true, message: 'Message read status updated', data: messages };
+        const personalMessages = messages.filter((message) => message.send_to == userId);
+        return { success: true, message: 'Message read status updated', data: personalMessages };
       } else {
         return { success: false, message: 'Failed to update message read status', data: '' };
       }
@@ -145,7 +146,7 @@ class APIService {
       messages.push(newMessage);
       const result = await APIDAO.saveMessages(messages);
       if (result) {
-        return { success: true, message: 'Message sent!', data: '' };
+        return { success: true, message: 'Message sent!', data: 'success' };
       } else {
         return { success: false, message: 'Failed to send message', data: '' };
       }

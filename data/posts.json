@@ -12,5 +12,12 @@
     "author_name": "Jim Smith",
     "title": "I am a good guy too",
     "content": "Jim is a good guy, so I am a good guy too"
+  },
+  {
+    "id": 3,
+    "author_id": 8,
+    "author_name": "test john",
+    "title": "test posts",
+    "content": "test post for new user"
   }
 ]

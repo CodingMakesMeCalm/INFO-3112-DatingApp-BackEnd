@@ -185,15 +185,15 @@ class APIController {
 
   static async setPersonalMessageRead(req, res, next) {
     try {
-      const { messageId } = req.body;
-      if (!messageId) {
+      const { userId, messageId } = req.body;
+      if (!userId || !messageId) {
         res.status(400).json({
           success: false,
           message: 'Query condition not found',
         });
         return;
       }
-      res.json(await APIService.setPersonalMessageRead(messageId));
+      res.json(await APIService.setPersonalMessageRead(userId,messageId));
     } catch (e) {
       next(e);
     }
